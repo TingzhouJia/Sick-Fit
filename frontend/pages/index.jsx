@@ -1,4 +1,5 @@
 
-const Home=props=>{
-    
-}
+const Home=props=>(
+    <div>hello</div>
+)
+export default Home;
