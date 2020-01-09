@@ -20,8 +20,9 @@ const Inner=styled.div`
     max-width:${props=>props.theme.maxWidth};
     margin:0 auto;
     padding: 2rem;
-
+   
 `
+//注入全局css
 injectGlobal`
   @font-face {
     font-family: 'radnika_next';
@@ -37,6 +38,7 @@ injectGlobal`
     box-sizing: inherit;
   }
   body {
+    
     padding: 0;
     margin: 0;
     font-size: 1.5rem;

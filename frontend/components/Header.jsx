@@ -1,7 +1,7 @@
 import Nav from './Nav'
 import Link from 'next/link'
 import styled from 'styled-components'
-import Nprogress from 'nprogress'
+import NProgress from 'nprogress'
 import Router from 'next/router'
 const Cart=props=>(<div>cart</div>)
 const Search=props=>(<div>Search</div>)
@@ -55,7 +55,8 @@ const StyledHeader = styled.header`
     border-bottom: 1px solid ${props => props.theme.lightgrey};
   }
 `;
-const Header=props=>(
+const Header=props=>{
+  return (
     <StyledHeader>
     <div className="bar">
       <Logo>
@@ -70,5 +71,6 @@ const Header=props=>(
     </div>
     <Cart />
   </StyledHeader>
-)
+  )
+}
 export default Header
