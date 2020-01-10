@@ -6,7 +6,8 @@ const Query = {
     //     const items=await ctx.db.query.items()
     //     return items
     // }
-    items:forwardTo('db')//allow to use the same in prisma and yoga
+    items:forwardTo('db'),//allow to use the same in prisma and yoga
+    item: forwardTo('db'),
 };
 
 module.exports = Query;
