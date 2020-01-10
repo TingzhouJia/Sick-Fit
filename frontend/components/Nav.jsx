@@ -3,7 +3,7 @@ import NavStyles from './styles/NavStyles'
 const Nav=props=>(
     <NavStyles>
         <Link href="/sell"><a >Sell</a></Link>
-        <Link href="/items">
+        <Link href="/items?page=1">
           <a>Shop</a>
         </Link>
         

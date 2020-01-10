@@ -25,7 +25,7 @@ const CREATE_ITEM_MUTATION = gql`
   }
 `;
 const CreateItem =()=>{
-    const [createOne,{loading,error}]=useMutation(CREATE_ITEM_MUTATION,)
+    const [createOne,{loading,error}]=useMutation(CREATE_ITEM_MUTATION)
     const datas={title:'',price:0,description:'',image:'',largeImage:''}
   
     const reducer=(state,action)=>{
@@ -68,8 +68,8 @@ const CreateItem =()=>{
             e.preventDefault();
            
             let data=await createOne({variables:{...states}})
-           
-            Router.push({pathname:'/items',query:{id:data.id}})
+            console.log(data)
+             Router.push({pathname:'/item',query:{id:data.createItem.id}})
         }
     }>
         <Error error={error}/>

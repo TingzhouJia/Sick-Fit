@@ -22,7 +22,7 @@ const Logo = styled.h1`
   position: relative;
   z-index: 2;
   transform: skew(-7deg);
-  .aa{
+  a{
    
     
     padding: 0.5rem 1rem;
@@ -31,7 +31,7 @@ const Logo = styled.h1`
     text-transform: uppercase;
     text-decoration: none;
   }
-  @media (max-width: 2000px) {
+  @media (max-width: 1000px) {
     margin: 0 ;
     text-align: center;
   }
@@ -60,7 +60,7 @@ const Header=props=>{
     <StyledHeader>
     <div className="bar">
       <Logo>
-        <Link href="/">
+        <Link href="/items">
           <a className='aa'>Sick Fits</a>
         </Link>
       </Logo>

@@ -24,14 +24,14 @@ const UPDATE_ITEM_MUTATION = gql`
     }
   }
 `;
-const UpdateItem =(props)=>{
+const UpdateItem =  (props)=>{
     const [updateOne,{uperror,uploading}]=useMutation(UPDATE_ITEM_MUTATION,)
     
 
-   const {loading,error,data}=useQuery(SINGLE_ITEM_QUERY,{variables:{
+   const {loading,error,data}= useQuery(SINGLE_ITEM_QUERY,{variables:{
     id: props.id,
   }})
-    const datas={title:'',price:0,description:'',id:props.id}
+    const datas=loading?{title:'',price:'',description:'',id:props.id}:{title:data.item.title,price:data.item.price,description:data.item.description,id:props.id}
   
     const reducer=(state,action)=>{
         switch(action.type){
@@ -61,7 +61,7 @@ const UpdateItem =(props)=>{
     return (<Form onSubmit={
         async e=>{
             e.preventDefault();
-            
+            console.log(states)
             let Data=await updateOne({variables:{...states}})
            
             Router.push({pathname:'/items',query:{id:Data.id}})
