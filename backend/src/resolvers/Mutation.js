@@ -84,19 +84,22 @@ const Mutations = {
           where: { email: args.email },
           data: { resetToken, resetTokenExpiry },
         });
+      
         // 3. Email them that reset token
-        const mailRes = await transport.sendMail({
-          from: 'wes@wesbos.com',
-          to: user.email,
-          subject: 'Your Password Reset Token',
-          html: makeANiceEmail(`Your Password Reset Token is here!
-          \n\n
-          <a href="${process.env
-            .FRONTEND_URL}/reset?resetToken=${resetToken}">Click Here to Reset</a>`),
-        });
+        // const mailRes = await transport.sendMail({
+        //   from: 'wes@wesbos.com',
+        //   to: user.email,
+        //   subject: 'Your Password Reset Token',
+        //   html: makeANiceEmail(`Your Password Reset Token is here!
+        //   \n\n
+        //   <a href="${process.env
+        //     .FRONTEND_URL}/reset?resetToken=${resetToken}">Click Here to Reset</a>`),
+        // });
     
-        // 4. Return the message
-        return { message: 'Thanks!' };
+        // // 4. Return the message
+        // return { message: 'Thanks!' };
+       
+        return {message:resetToken}
       },
       async resetPassword(parent,args,ctx,info){
         // 1. check if the passwords match
@@ -115,7 +118,7 @@ const Mutations = {
       throw new Error('This token is either invalid or expired!');
     }
     // 4. Hash their new password
-    const password = await bcrypt.hash(args.password, 10);
+    const password = await bcrybt.hash(args.password, 10);
     // 5. Save the new password to the user and remove old resetToken fields
     const updatedUser = await ctx.db.mutation.updateUser({
       where: { email: user.email },

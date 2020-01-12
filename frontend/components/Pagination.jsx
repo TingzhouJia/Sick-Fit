@@ -16,7 +16,7 @@ const PAGINATION_QUERY=gql`
 const Pagination=props=>{
     const {data,error,loading}=useQuery(PAGINATION_QUERY)
     let count,pages,page;
-    if(!loading){
+    if(!loading&&!error){
         count=data.itemsConnection.aggregate.count
         pages=Math.ceil(count/perPage)
         page=props.page

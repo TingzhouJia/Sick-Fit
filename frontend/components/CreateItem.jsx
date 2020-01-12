@@ -58,7 +58,9 @@ const CreateItem =()=>{
         data.append('file',files[0])
         data.append('upload_preset','sick-fit')
        const res=await fetch("https://api.cloudinary.com/v1_1/beta-lab/image/upload",{method:'POST',body:data})
+       
        const file = await res.json();
+    
        dispatch({type:'file',data:{image:file.secure_url,largeImage:file.eager[0].secure_url}})
             
       
@@ -68,8 +70,8 @@ const CreateItem =()=>{
             e.preventDefault();
            
             let data=await createOne({variables:{...states}})
-            console.log(data)
-             Router.push({pathname:'/item',query:{id:data.createItem.id}})
+            console.log(data.createItem)
+             Router.push({pathname:'/item',query:{id:data.data.createItem.id}})
         }
     }>
         <Error error={error}/>

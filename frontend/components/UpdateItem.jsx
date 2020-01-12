@@ -25,8 +25,9 @@ const UPDATE_ITEM_MUTATION = gql`
   }
 `;
 const UpdateItem =  (props)=>{
-    const [updateOne,{uperror,uploading}]=useMutation(UPDATE_ITEM_MUTATION,)
-    
+    const [updateOne,{error,loading}]=useMutation(UPDATE_ITEM_MUTATION,)
+    let uploading=loading
+    let uperror=error
 
    const {loading,error,data}= useQuery(SINGLE_ITEM_QUERY,{variables:{
     id: props.id,

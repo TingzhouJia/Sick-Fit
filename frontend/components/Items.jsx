@@ -30,7 +30,7 @@ const ItemsList = styled.div`
 const Items=(props)=>{
     
 
-    const { loading, error, data } = useQuery(ALL_ITEM_QUERY,{variables:{skip: props.query.page*perPage-perPage,fetchPolicy:'network-only'}})
+    const { loading, error, data } = useQuery(ALL_ITEM_QUERY,{variables:{skip: props.page*perPage-perPage,fetchPolicy:'network-only'}})
     
   
     
@@ -38,8 +38,8 @@ const Items=(props)=>{
         <Center>
            
 
-            <Pagination page={props.query.page}/>
-           {loading?<p>loading...</p>:(<ItemsList>
+            <Pagination page={props.page}/>
+           {loading||error?<p>loading...</p>:(<ItemsList>
                     {data.items.map(item =><Item item={item} key={item.id} />)}
                 </ItemsList>)}
             <Pagination page={props.page}/>
