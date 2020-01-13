@@ -24,17 +24,18 @@ type Item {
   image: String
   largeImage: String
   price: Int!
+  user: User!
 }
 
 type CartItem {
-  id: ID! @unique
+  id: ID! @id
   quantity: Int! @default(value: 1)
   item: Item # relationship to Item
   user: User! # relationship to User
 }
 
 type OrderItem {
-  id: ID! @unique
+  id: ID! @id
   title: String!
   description: String!
   image: String!
@@ -45,11 +46,11 @@ type OrderItem {
 }
 
 type Order {
-  id: ID! @unique
+  id: ID! @id
   items: [OrderItem!]!
   total: Int!
   user: User!
   charge: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
 }

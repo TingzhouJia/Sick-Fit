@@ -12,24 +12,25 @@ type Mutation {
   signout: SuccessMessage
   requestReset(email: String!): SuccessMessage
   resetPassword(resetToken: String!, password: String!, confirmPassword: String!): User!
-  # updatePermissions(permissions: [Permission], userId: ID!): User
-  # addToCart(id: ID!): CartItem
-  # removeFromCart(id: ID!): CartItem
-  # createOrder(token: String!): Order!
+  updatePermissions(permissions: [Permission], userId: ID!): User
+  addToCart(id: ID!): CartItem
+  removeFromCart(id: ID!): CartItem
+  createOrder(token: String!): Order!
 }
 type Query {
   items(where: ItemWhereInput, orderBy: ItemOrderByInput, skip: Int, first: Int): [Item]!
   item(where: ItemWhereUniqueInput!): Item
   itemsConnection(where: ItemWhereInput): ItemConnection!
   me: User 
-  # order(id: ID!): Order
-  # orders(orderBy: OrderOrderByInput): [Order]!
+   users: [User]!
+  order(id: ID!): Order
+  orders(orderBy: OrderOrderByInput): [Order]!
 }
 type User{
   id: ID!
   name: String!
   email: String!
-  # permissions: [Permission!]!
-  # cart: [CartItem!]!
-  # orders: [OrderItem]
+  permissions: [Permission!]!
+  cart: [CartItem!]!
+  orders: [OrderItem]
 }
