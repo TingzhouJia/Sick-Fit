@@ -15,6 +15,7 @@ const PAGINATION_QUERY=gql`
 
 const Pagination=props=>{
     const {data,error,loading}=useQuery(PAGINATION_QUERY)
+    
     let count,pages,page;
     if(!loading&&!error){
         count=data.itemsConnection.aggregate.count
@@ -23,7 +24,7 @@ const Pagination=props=>{
     }
     return (<PaginationStyles>
        
-            <Link prefetch href={{pathname:'items',query:{page:page-1}}}><a className="prev" aria-disabled={page <= 1}>← Prev</a></Link>
+            <Link  href={{pathname:'items',query:{page:page-1}}}><a className="prev" aria-disabled={page <= 1}>← Prev</a></Link>
         {
         loading?<p>loading</p>:<><p>Page {props.page} of {pages}</p><p>{count} Items Total</p></>}
          <Link

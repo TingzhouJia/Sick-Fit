@@ -41,7 +41,7 @@ const SignIn=props=>{
                 setState({type:'reset'}
                 
                 )
-                Router.push({pathname:'/'})
+                Router.push({pathname:'/',query:{page:1}})
             }}>
          <fieldset disabled={loading} aria-busy={loading}>
               <h2>Sign In for An Account</h2>

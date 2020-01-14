@@ -2,7 +2,7 @@ import {useMutation,gql} from '@apollo/client'
 import Error from './ErrorMessage';
 import Form from './styles/Form'
 import formatMoney from '../lib/formatMoney'
-import React,{useReducer,useCallback} from 'react'
+import React,{useReducer,useCallback,useState} from 'react'
 import Router from 'next/router'
 import axios from 'axios'
 const CREATE_ITEM_MUTATION = gql`
@@ -41,7 +41,7 @@ const CreateItem =()=>{
         }
     }
     const [states,dispatch]=useReducer(reducer,datas)
-    
+    const [E,setE]=useState(true)
     const titleChange=useCallback((e)=>{
         dispatch({type:'title',data:e.target.value})
       
@@ -68,13 +68,17 @@ const CreateItem =()=>{
     return (<Form onSubmit={
         async e=>{
             e.preventDefault();
-           
+            if(states.title===''||states.price===''||states.description===''||states.image===''){
+              setE(false)
+              return 
+            }
             let data=await createOne({variables:{...states}})
             console.log(data.createItem)
              Router.push({pathname:'/item',query:{id:data.data.createItem.id}})
         }
     }>
         <Error error={error}/>
+        {E?null:<p>Need Vaild Input</p>}
         <fieldset disabled={loading} aria-busy={loading}>
         <label htmlFor='file'>File <input type='file' id='file' placeholder="upload file" onChange={fileChange}/></label>
         {states.image&&(<img width='200' src={states.image} alt="upload image" />)}

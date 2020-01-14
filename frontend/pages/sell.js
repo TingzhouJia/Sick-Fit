@@ -1,2 +1,9 @@
 import CreateItem from '../components/CreateItem'
-export default CreateItem
+import PleaseSignIn from '../components/PleaseSignIn'
+const Sell =props=>(
+    <PleaseSignIn>
+        <CreateItem/>
+    </PleaseSignIn>
+)
+export default Sell
+

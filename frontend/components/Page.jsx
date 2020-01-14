@@ -12,17 +12,17 @@ const theme = {
     bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
   };
   
-const StylePage=styled.div`
-    background:${props=>props.theme.offWhite};
-    color:${props=>props.theme.black};
-`
-const Inner=styled.div`
-    max-width:${props=>props.theme.maxWidth};
-    margin:0 auto;
-    padding: 2rem;
-   
-`
-//注入全局css
+  const StylePage = styled.div`
+  background: white;
+  color: ${props => props.theme.black};
+`;
+
+const Inner = styled.div`
+  max-width: ${props => props.theme.maxWidth};
+  margin: 0 auto;
+  padding: 2rem;
+`;
+
 injectGlobal`
   @font-face {
     font-family: 'radnika_next';
@@ -38,7 +38,6 @@ injectGlobal`
     box-sizing: inherit;
   }
   body {
-    
     padding: 0;
     margin: 0;
     font-size: 1.5rem;

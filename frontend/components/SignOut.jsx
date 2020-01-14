@@ -17,7 +17,7 @@ const SignOut = props => {
    const out=async(e)=>{
         await signout()
         console.log('out')
-        Router.push({pathname:'/'})
+        Router.push({pathname:'/',query:{page:1}})
     }
      return ( <button onClick={out}>Sign Out</button>
         )
