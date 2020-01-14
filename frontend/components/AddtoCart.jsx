@@ -16,13 +16,17 @@ const ADD_TO_CART_MUTATION = gql`
 const AddToCart =(props)=>{
  
     const { id } =props;
-    const [addToCart,{loading}]=useMutation(ADD_TO_CART_MUTATION,{refetchQueries:[CURRENT_USER_QUERY],onCompleted:()=>console.log('finished')})
+    const [addToCart,{loading}]=useMutation(ADD_TO_CART_MUTATION,{update(cache,{data:{addToCart}}){
+        const cartItemId = addToCart.id;
+        const data=cache.readQuery({query:CURRENT_USER_QUERY})
+        data.me.cart = data.me.cart.concat([cartItemId])
+        cache.writeQuery({ query: CURRENT_USER_QUERY, data })}})
    
     return (
      
         <button disabled={loading} onClick={async()=>{
             const d=await addToCart({variables:{id}}) 
-            console.log(d)
+           
             Router.push({pathname:'/items',query:{page:1}})
         }}>Add To Cart 🛒</button>
     

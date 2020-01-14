@@ -54,10 +54,10 @@ const Nav=props=>{
           <Link href="/sell">
             <a>Sell</a>
           </Link>
-          <Link href="/order">
+          <Link href="/orders">
             <a>Orders</a>
           </Link>
-          <Link href="/me">
+          <Link href="/permissions">
             <a>Account</a>
           </Link>
           <SignOut/>

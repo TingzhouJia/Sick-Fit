@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useQuery,gql } from '@apollo/client';
-import { format } from 'date-fns';
+import  format  from 'date-fns/format';
 import Head from 'next/head';
 
 import formatMoney from '../lib/formatMoney';
@@ -46,7 +46,7 @@ const Order=(props)=> {
               </Head>
               <p>
                 <span>Order ID:</span>
-                <span>{this.props.id}</span>
+                <span>{props.id}</span>
               </p>
               <p>
                 <span>Charge</span>
@@ -54,7 +54,7 @@ const Order=(props)=> {
               </p>
               <p>
                 <span>Date</span>
-                <span>{format(order.createdAt, 'MMMM d, YYYY h:mm a')}</span>
+                <span>{format(new Date(order.createdAt), 'MMMM d, yyyy h:mm a', { awareOfUnicodeTokens: true })}</span>
               </p>
               <p>
                 <span>Order Total</span>
@@ -70,7 +70,7 @@ const Order=(props)=> {
                     <img src={item.image} alt={item.title} />
                     <div className="item-details">
                       <h2>{item.title}</h2>
-                      <p>Qty: {item.quantity}</p>
+                      <p>Quantity: {item.quantity}</p>
                       <p>Each: {formatMoney(item.price)}</p>
                       <p>SubTotal: {formatMoney(item.price * item.quantity)}</p>
                       <p>{item.description}</p>

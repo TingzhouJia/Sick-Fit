@@ -26,13 +26,13 @@ const UPDATE_ITEM_MUTATION = gql`
 `;
 const UpdateItem =  (props)=>{
     const [updateOne,{error,loading}]=useMutation(UPDATE_ITEM_MUTATION,)
-    let uploading=loading
-    let uperror=error
+  
 
-   const {loading,error,data}= useQuery(SINGLE_ITEM_QUERY,{variables:{
+   const res= useQuery(SINGLE_ITEM_QUERY,{variables:{
     id: props.id,
   }})
-    const datas=loading?{title:'',price:'',description:'',id:props.id}:{title:data.item.title,price:data.item.price,description:data.item.description,id:props.id}
+    const data=res.data
+    const datas=res.loading?{title:'',price:'',description:'',id:props.id}:{title:data.item.title,price:data.item.price,description:data.item.description,id:props.id}
   
     const reducer=(state,action)=>{
         switch(action.type){
@@ -68,8 +68,8 @@ const UpdateItem =  (props)=>{
             Router.push({pathname:'/items',query:{id:Data.id}})
         }
     }>
-        <Error error={uperror}/>
-    {loading?<p>loading...</p>:(data.item?<fieldset disabled={uploading} aria-busy={uploading} >
+        <Error error={error}/>
+    {res.loading?<p>loading...</p>:(data.item?<fieldset disabled={loading} aria-busy={loading} >
        <label htmlFor='title'>Title <input type='text' id='title' defaultValue={data.item.title} onChange={titleChange}/></label>
        <label htmlFor='price'>Price <input type='text' id='price' defaultValue={data.item.price} onChange={priceChange}/></label>
        <label htmlFor='description'>Description <textarea id='description' defaultValue={data.item.description} onChange={desChange}/></label>
