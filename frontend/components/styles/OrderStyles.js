@@ -1,3 +1,4 @@
+
 import styled from 'styled-components';
 
 const OrderStyles = styled.div`
@@ -30,7 +31,6 @@ const OrderStyles = styled.div`
     padding-bottom: 2rem;
     img {
       width: 100%;
-      height: 100%;
       object-fit: cover;
     }
   }

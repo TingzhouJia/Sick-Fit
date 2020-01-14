@@ -5,7 +5,7 @@ import SickButton from './styles/SickButton';
 import {useMutation,useQuery,gql,} from '@apollo/client'
 import CartItem from './CartItems';
 import calcTotalPrice from '../lib/calcTotalPrice';
-
+import TakeMoney from './TakeMoney'
 import formatMoney from '../lib/formatMoney';
 import {CURRENT_USER_QUERY} from './Nav'
 
@@ -47,7 +47,7 @@ const Cart=porps=>{
             </ul>
             <footer>
               <p>{formatMoney(calcTotalPrice(me.cart))}</p>
-              <SickButton>Checkout</SickButton>
+              <TakeMoney><SickButton>Checkout</SickButton></TakeMoney>
             </footer>
           </CartStyles>
     )

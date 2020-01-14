@@ -3,6 +3,7 @@ const jwt=require('jsonwebtoken')
 const {randomBytes}=require('crypto')
 const {promisify}=require('util')
 const { hasPermission } = require('../utils');
+const stripe = require('../stripe');
 const Mutations = {
     async createItem(parent,args,ctx,info){
         //this return promise

@@ -62,7 +62,7 @@ const Header=props=>{
     <StyledHeader>
     <div className="bar">
       <Logo>
-        <Link href="/items">
+        <Link href={{pathname:'items',query:{page:1}}}>
           <a className='aa'>Sick Fits</a>
         </Link>
       </Logo>

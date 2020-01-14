@@ -35,7 +35,7 @@ const AutoCOmplelte=()=>{
         }
     }
     const [state,setState]=useReducer(reducer,orign)
-    console.log(state)
+  
     const client=useApolloClient()
     const handleOnChange = debounce(async (e) => {
         console.log('Searching...');

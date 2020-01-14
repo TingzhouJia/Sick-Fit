@@ -12,9 +12,9 @@ const CURRENT_USER_QUERY = gql`
       email
       name
       permissions
-      # orders {
-      #   id
-      # }
+      orders {
+        id
+      }
       cart {
         id
         quantity
@@ -54,7 +54,7 @@ const Nav=props=>{
           <Link href="/sell">
             <a>Sell</a>
           </Link>
-          <Link href="/orders">
+          <Link href="/order">
             <a>Orders</a>
           </Link>
           <Link href="/me">
