@@ -10,7 +10,10 @@
     "test": "NODE_ENV=test jest --watch",
     "test-win": "SET NODE_ENV=test&& jest --watch",
     "heroku-postbuild": "next build",
-    "analyze":  "cross-env ANALYZE=true next build"
+    "analyze":  "cross-env ANALYZE=true next build",
+    "deploy":"next run build && next export"
+   
+
   },
   "author": "",
   "license": "ISC",
