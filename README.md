@@ -1,7 +1,7 @@
 # Sick-Fit E-commerce
 ### Technology Stack:
 - [Hooks](https://github.com/facebook/react) -New feature of React, kill the redundancy in components :smiley: and no "life-cycle" anymore :star2::star2: 
-- [Next.js]（https://nextjs.org/）- Enable SSR and better SEO for React app :+1::+1::+1:
+- [Next.js](https://nextjs.org/)  - Enable SSR and better SEO for React app :+1::+1::+1:
 - [GraphQL](https://graphql.org/) -API gateway :blush:
 - [Apollo](https://www.apollographql.com/docs/react/) - Responsible for state management, a good replacement of Redux :heart_eyes:
 - [Prisma](https://www.prisma.io/) - Accress to Database with nodejs and typescript :wink:
