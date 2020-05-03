@@ -10,6 +10,10 @@
 1. First copy the repo into your disk:
 ```shell
 $ git clone https://github.com/TingzhouJia/Sick-Fit.git
+$ cd Sick-Fits/frontend
+$ npm install
+$ cd ../backend
+$ npm install
 ```
 2. Register your account in [Prisma](https://app.prisma.io/)
 3. Then you can replace original config with your own file :innocent:
